@@ -1,0 +1,70 @@
+2018-04-09T21:17:10.2327207+02:00 0HLCU9PUQE606:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:51278/   (ca22a1cb)
+2018-04-09T21:17:11.4745544+02:00 0HLCU9PUQE606:00000001 [INF] Request finished in 1346.8614ms 404 text/plain (791a596a)
+2018-04-09T21:17:11.6336959+02:00 0HLCU9PUQE606:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:51278/favicon.ico   (ca22a1cb)
+2018-04-09T21:17:11.6465522+02:00 0HLCU9PUQE606:00000002 [INF] Request finished in 11.2522ms 404 text/plain (791a596a)
+2018-04-09T23:28:27.1550581+02:00 0HLCU9PUQE607:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:51278/api/books/3 application/json 1277 (ca22a1cb)
+2018-04-09T23:28:30.6075459+02:00 0HLCU9PUQE607:00000001 [INF] Executing action method "MLS.Web.Controllers.BooksController.UpdateBook (MLS.Web)" with arguments (["3", "MLS.Domain.Book"]) - ModelState is Valid (ba7f4ac2)
+2018-04-09T23:28:47.4063161+02:00 0HLCU9PUQE607:00000001 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-04-09T23:28:49.0312619+02:00 0HLCU9PUQE607:00000001 [INF] Executed DbCommand ("723"ms) [Parameters=["@__ToInt32_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [x].[Id], [x].[CreatedDate], [x].[Description], [x].[Edition], [x].[ExternalId], [x].[HasImage], [x].[ISBN13], [x].[ModifiedDate], [x].[NumberOfPages], [x].[Price], [x].[PublicationDate], [x].[Publisher], [x].[Subtitle], [x].[TableOfContents], [x].[Title]
+FROM [Books] AS [x]
+WHERE [x].[Id] = @__ToInt32_0
+ORDER BY [x].[Id]" (0723d8ff)
+2018-04-09T23:28:49.5759673+02:00 0HLCU9PUQE607:00000001 [INF] Executed DbCommand ("423"ms) [Parameters=["@__ToInt32_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x.Authors].[BookId], [x.Authors].[AuthorId], [b.Author].[Id], [b.Author].[CreatedDate], [b.Author].[ModifiedDate], [b.Author].[Name]
+FROM [BookAuthors] AS [x.Authors]
+INNER JOIN [Authors] AS [b.Author] ON [x.Authors].[AuthorId] = [b.Author].[Id]
+INNER JOIN (
+    SELECT TOP(1) [x0].[Id]
+    FROM [Books] AS [x0]
+    WHERE [x0].[Id] = @__ToInt32_0
+    ORDER BY [x0].[Id]
+) AS [t] ON [x.Authors].[BookId] = [t].[Id]
+ORDER BY [t].[Id]" (0723d8ff)
+2018-04-09T23:28:49.7001385+02:00 0HLCU9PUQE607:00000001 [INF] Executed DbCommand ("68"ms) [Parameters=["@__ToInt32_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [x.Categories].[BookId], [x.Categories].[CategoryId], [b.Category].[Id], [b.Category].[CreatedDate], [b.Category].[ModifiedDate], [b.Category].[Name]
+FROM [BookCategories] AS [x.Categories]
+INNER JOIN [Categories] AS [b.Category] ON [x.Categories].[CategoryId] = [b.Category].[Id]
+INNER JOIN (
+    SELECT TOP(1) [x1].[Id]
+    FROM [Books] AS [x1]
+    WHERE [x1].[Id] = @__ToInt32_0
+    ORDER BY [x1].[Id]
+) AS [t0] ON [x.Categories].[BookId] = [t0].[Id]
+ORDER BY [t0].[Id]" (0723d8ff)
+2018-04-09T23:29:39.9180459+02:00 0HLCU9PUQE607:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@p1='?', @p2='?' (Size = 4000), @p0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [Books] SET [Edition] = @p0
+WHERE [Id] = @p1 AND [Description] = @p2;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2018-04-09T23:29:40.5074685+02:00 0HLCU9PUQE607:00000001 [ERR] An exception occurred in the database while saving changes for context type '"MLS.Infrastructure.Data.ApplicationDbContext"'."
+""Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(Int32 commandIndex, RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(Tuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)" (170f029e)
+Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException: Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions.
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ThrowAggregateUpdateConcurrencyException(Int32 commandIndex, Int32 expectedRowsAffected, Int32 rowsAffected)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithoutPropagation(Int32 commandIndex, RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(Tuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2018-04-09T23:29:49.3278553+02:00 0HLCU9PUQE607:00000001 [ERR] Database operation expected to affect 1 row(s) but actually affected 0 row(s). Data may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=527962 for information on understanding and handling optimistic concurrency exceptions. (e8e97eec)
+2018-04-09T23:29:52.7778966+02:00 0HLCU9PUQE607:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2018-04-09T23:29:52.8130596+02:00 0HLCU9PUQE607:00000001 [INF] Executed action "MLS.Web.Controllers.BooksController.UpdateBook (MLS.Web)" in 83872.0243ms (afa2e885)
+2018-04-09T23:29:52.8204561+02:00 0HLCU9PUQE607:00000001 [INF] Request finished in 85954.924ms 500 text/plain; charset=utf-8 (791a596a)

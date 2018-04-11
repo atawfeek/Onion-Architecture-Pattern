@@ -1,0 +1,9 @@
+D:\Private Work\mls\backend\Domain\bin\Debug\netstandard2.0\MLS.Domain.deps.json
+D:\Private Work\mls\backend\Domain\bin\Debug\netstandard2.0\MLS.Domain.dll
+D:\Private Work\mls\backend\Domain\bin\Debug\netstandard2.0\MLS.Domain.pdb
+D:\Private Work\mls\backend\Domain\obj\Debug\netstandard2.0\MLS.Domain.csproj.CoreCompileInputs.cache
+D:\Private Work\mls\backend\Domain\obj\Debug\netstandard2.0\MLS.Domain.AssemblyInfoInputs.cache
+D:\Private Work\mls\backend\Domain\obj\Debug\netstandard2.0\MLS.Domain.AssemblyInfo.cs
+D:\Private Work\mls\backend\Domain\obj\Debug\netstandard2.0\MLS.Domain.dll
+D:\Private Work\mls\backend\Domain\obj\Debug\netstandard2.0\MLS.Domain.pdb
+D:\Private Work\mls\backend\Domain\obj\Debug\netstandard2.0\MLS.Domain.csprojResolveAssemblyReference.cache

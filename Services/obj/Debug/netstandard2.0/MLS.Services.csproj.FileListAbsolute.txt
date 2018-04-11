@@ -1,0 +1,14 @@
+D:\Private Work\mls\backend\Services\bin\Debug\netstandard2.0\MLS.Services.deps.json
+D:\Private Work\mls\backend\Services\bin\Debug\netstandard2.0\MLS.Services.dll
+D:\Private Work\mls\backend\Services\bin\Debug\netstandard2.0\MLS.Services.pdb
+D:\Private Work\mls\backend\Services\bin\Debug\netstandard2.0\MLS.Domain.dll
+D:\Private Work\mls\backend\Services\bin\Debug\netstandard2.0\MLS.Infrastructure.Data.dll
+D:\Private Work\mls\backend\Services\bin\Debug\netstandard2.0\MLS.Domain.pdb
+D:\Private Work\mls\backend\Services\bin\Debug\netstandard2.0\MLS.Infrastructure.Data.pdb
+D:\Private Work\mls\backend\Services\obj\Debug\netstandard2.0\MLS.Services.csprojResolveAssemblyReference.cache
+D:\Private Work\mls\backend\Services\obj\Debug\netstandard2.0\MLS.Services.csproj.CoreCompileInputs.cache
+D:\Private Work\mls\backend\Services\obj\Debug\netstandard2.0\MLS.Services.AssemblyInfoInputs.cache
+D:\Private Work\mls\backend\Services\obj\Debug\netstandard2.0\MLS.Services.AssemblyInfo.cs
+D:\Private Work\mls\backend\Services\obj\Debug\netstandard2.0\MLS.Services.csproj.CopyComplete
+D:\Private Work\mls\backend\Services\obj\Debug\netstandard2.0\MLS.Services.dll
+D:\Private Work\mls\backend\Services\obj\Debug\netstandard2.0\MLS.Services.pdb
